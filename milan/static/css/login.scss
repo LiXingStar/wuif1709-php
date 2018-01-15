@@ -1,0 +1,19 @@
+@import "base";
+
+$w: 500px;
+$h: 255px;
+$bg: '../image/';
+html, body {
+  @include pre;
+}
+
+body {
+  @include centerf;
+  overflow: hidden;
+  background: #f9f9f9;
+}
+
+.box {
+  width: $w;
+  height: $h;
+}
