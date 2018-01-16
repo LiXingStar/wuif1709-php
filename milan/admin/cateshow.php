@@ -1,7 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lixing
- * Date: 2018/1/15
- * Time: 18:00
- */
+
+ include '../libs/db.php';
+ include "../libs/function.php";
+ $obj = new unit();
+ $table = $obj->cateTable($mysql,'category');
+ include '../template/admin/cateshow.html';
