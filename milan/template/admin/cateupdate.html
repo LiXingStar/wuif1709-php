@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <title>Title</title>
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/cateupdate.js"></script>
+</head>
+<body>
+<form action="cateupdate.php" method="post" enctype="multipart/form-data" >
+    <div class="form-group">
+        <label for="exampleInputEmail1">父栏目</label>
+        <select class="form-control" id="exampleInputEmail1" name="pid">
+            <option value="0">一级栏目</option>
+
+            <?php
+            echo $str;
+?>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">栏目名称</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="category name" name="cname" value="<?php echo $data['cname'];?>">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword2">英文名称</label>
+        <input type="text" class="form-control" id="exampleInputPassword2" placeholder="english name" name="engname" value="<?php echo $data['engname'];?>" required>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputFile">File input</label>
+        <input type="file" id="exampleInputFile" name="cimage">
+    </div>
+    <img src="<?php echo $data['cimage'];?>" alt=""class="img-thumbnail" width="100">
+    <div class="form-group">
+        <label for="exampleInputText">栏目描述</label>
+        <textarea class="form-control" rows="3" id="exampleInputText" name="cdesc"><?php echo $data['cdesc'];?></textarea>
+    </div>
+    <input type="hidden" value="<?php echo $data['cid'];?>" name="cid">
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</body>
+</html>

@@ -17,18 +17,29 @@ class unit
      *
      *  cateTree($db,0,0,'category')
      * */
-    function cateTree($db, $pid, $flag, $tablename)
+    function cateTree($db, $pid, $flag, $tablename,$currentid=null)
     {
         $flag++;
+        $parentid = null;
+        if($currentid){
+            $sql = "select pid from $tablename where cid=$currentid";
+            $parentid = $db->query($sql)->fetch_assoc()['pid'];
+        }
         $sql = "select * from $tablename where pid=$pid";
         $data = $db->query($sql);
         while ($row = $data->fetch_assoc()) {
             $str = str_repeat('-', $flag);
-            $this->str .= "<option value=\"{$row['cid']}\">{$str} {$row['cname']}</option>";
+
+            if($row['cid'] == $parentid){
+                    $this->str .= "<option value=\"{$row['cid']}\" selected>{$str} {$row['cname']}</option>";
+                }else{
+                $this->str .= "<option value=\"{$row['cid']}\">{$str} {$row['cname']}</option>";
+            }
             $this->cateTree($db, $row['cid'], $flag, $tablename);
         }
         return $this->str;
     }
+
 
     function cateTable($db, $tablename)
     {
@@ -46,7 +57,7 @@ class unit
               <img src=\"{$data[$i]['cimage']}\" alt=\"\" class=\"img-thumbnail\" width='50'>
           </td>
           <td>{$data[$i]['pid']}</td>
-          <td><a href=\"\" class=\"btn btn-info\">修改</a><a href=\"\" class=\"btn btn-info\" style=\"margin-left: 10px\">删除</a></td>
+          <td><a href=\"cateupdate.php?cid={$data[$i]['cid']}\" class=\"btn btn-info\">修改</a><a href=\"catedelete.php?cid={$data[$i]['cid']}\" class=\"btn btn-info\" style=\"margin-left: 10px\">删除</a></td>
       </tr>
               ";
         }

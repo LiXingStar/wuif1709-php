@@ -8,10 +8,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $str = $obj->cateTree($mysql,0,0,'category');
     include '../template/admin/cateadd.html';
 } else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
     $pid = $_POST['pid'];
     $cname = $_POST['cname'];
     $engname = $_POST['ename'];
     $cdesc = $_POST['cdesc'];
+    $isshow = $_POST['isshow'];
+    $ctemp = $_POST['ctemp'];
+    $cmodel = $_POST['cmodel'];
     $info = $_FILES['cimage'];
 
     if (is_uploaded_file($info['tmp_name'])) {
@@ -30,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $imgurl = '/milan/' . substr($path, 3);
     }
 
-    $sql = "insert into category (pid,cname,engname,cdesc,cimage) values ($pid,'{$cname}','{$engname}','{$cdesc}','{$imgurl}')";
+    $sql = "insert into category (pid,cname,engname,cdesc,cimage,isshow,ctemp,cmodel) values ($pid,'{$cname}','{$engname}','{$cdesc}','{$imgurl}','{$isshow}','{$ctemp}','{$cmodel}')";
     $mysql->query($sql);
 
     if ($mysql->affected_rows) {

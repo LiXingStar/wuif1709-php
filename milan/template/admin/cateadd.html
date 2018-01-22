@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/cateadd.js"></script>
     <title>Title</title>
 </head>
 <body>
@@ -26,13 +28,31 @@
         <input type="text" class="form-control" id="exampleInputPassword2" placeholder="english name" name="ename">
     </div>
     <div class="form-group">
-        <label for="exampleInputFile">File input</label>
+        <label for="exampleInputFile">栏目图片</label>
         <input type="file" id="exampleInputFile" name="cimage">
     </div>
 
     <div class="form-group">
         <label for="exampleInputText">栏目描述</label>
         <textarea class="form-control" rows="3" id="exampleInputText" name="cdesc"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputTmp">栏目模板</label>
+        <input type="file" id="exampleInputTmp">
+    </div>
+    <input type="hidden" name="ctemp" value="">
+    <div class="form-group">
+        <label for="exampleInputModel">栏目功能</label>
+        <select name="cmodel" id="exampleInputModel">
+            <option value="category">分类</option>
+            <option value="list">列表</option>
+            <option value="show">内容</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>是否在导航显示</label>
+        是<input type="radio" name="isshow" value="true">
+        否<input type="radio" name="isshow" value="false">
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
 </form>

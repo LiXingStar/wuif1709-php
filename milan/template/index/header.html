@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_545495_3x4cj7rkvgwuerk9.css">
+    <link rel="stylesheet" href="/milan/static/font/iconfont.css">
+    <link rel="stylesheet" href="/milan/static/css/index.css">
+    <title>Matcha Chocolate</title>
+    <script src="/milan/static/js/jquerys.js"></script>
+    <script src="/milan/static/js/index.js"></script>
+</head>
+<body>
+<!-- 头部开始 -->
+<div class="top">
+    <div class="top1">
+        <span style="font-size:14px; font-weight: 600;">网站公告 :  </span>
+        &nbsp;1986年，Poliform 创造了Matcha Chocolate，用石磨碾磨的茶。磨茶的石磨称为茶磨...
+    </div>
+</div>
+
+<!-- nav -->
+<div class="navone">
+    <div class="nav">
+        <div class="nav1">
+            <h2 class="h2-1">MiLan</h2>
+            <h2 class="h2-1 h2-2">Varenna</h2>
+            <div class="boxs">
+                <a href="index.html" class="hot nav-list  ">网站首页</a>
+
+                <?php
+                  for($i=0;$i<count($data);$i++){
+                ?>
+
+                  <a href="category.php?cid=<?php echo $data[$i]['cid']?>" class="nav-list navs">
+                      <?php echo $data[$i]['cname']?>
+                  </a>
+
+                <?php
+                  }
+                ?>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ns"><i class="iconfont icon-gengduo"></i></div>
+<!-- 头部结束 -->
