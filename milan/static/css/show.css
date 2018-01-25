@@ -1,0 +1,243 @@
+@import url('base.css');
+/* toubu kaishi */
+.top{
+    width: 100%;
+    height: 30px;
+    background: #222222;
+}
+body{
+    background-color: #f9fbfa;
+}
+.top1{
+	width: 570px;
+	height: 100%;
+	margin: 0 auto;
+	font-size: 12px;
+	line-height: 30px;
+	color: #fff;
+}
+.nav{
+	width: 100%;
+	height: 70px;
+}
+.nav1{
+	width:1000px;
+	height: 100%;
+	box-sizing: border-box;
+	padding-top: 10px;
+	margin: 0 auto;
+}
+.h2-1{
+	height: 50px;
+	width: 125px;
+	font-size: 28px;
+	line-height: 50px;
+	text-align: center;
+	border-right: 1px solid #dfdddc;
+	float: left;
+}
+.h2-2{
+	width: 150px;
+	border-right: 0;
+	color: #ced0cf;
+	margin-right: 50px;
+}
+.nav-list{
+	display: block;
+	width: 120px;
+	height: 100%;
+	line-height: 50px;
+	font-size: 16px;
+	font-weight: 600;
+	color: #202221;
+	text-align: center;
+	float: left;
+}
+.nav-list:hover{
+	color:#ae2422;
+}
+.nav1 .nav-list:nth-child(3){
+	color: #ae2422;
+}
+/* ppls 开始 */
+.ppls{
+	padding-top: 90px;
+	width: 1000px;
+	height: 56px;
+	margin: 10px auto;
+    font-size: 22px;
+    color: #ae2422;
+    line-height: 52px;
+    font-weight: 600;
+    border-bottom: 1px solid #d0d0d0;
+}
+.ppls-right{
+	width: auto;
+	height: 25px;
+	float: right;
+	margin: 15px 0;
+    font-size: 12px;
+    color: #666;
+    line-height: 25px;
+}
+.ppls-right a{
+	color: #666;
+}
+.ppls-right a:hover{
+	color: #cd2223;
+}
+.ppls-right a:nth-of-type(3){
+	color: #cd2223;
+}
+/* milan 客厅列表 */
+.ktxl{
+	width: 1032px;
+	height: auto;
+	margin: 0 auto;
+}
+.list{
+	width: 1030px;
+	height: auto;
+	padding: 30px 0;
+	border: 1px solid #cccecd;
+	background-color: #c8c1bb;
+}
+.list img{
+	width: 640px;
+	height: 408px;
+	margin: 0 auto;
+}
+.list p{
+	font-size: 14px;
+	line-height: 30px;
+    color: #ae2422;
+    margin-left: 20px;
+    font-weight: 600;
+}
+/* foot kaishi */
+.foot{
+	width: 100%;
+	height: 160px;
+	background-color: #222;
+	padding-top: 20px;
+	margin-top: 30px;
+}
+.foot1{
+	width: 1000px;
+	height:100%;
+	margin: 0 auto;
+}
+.foot1 p{
+	width: 1000px;
+	height: 50px;
+    color: #bababa;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+}
+.foot1 p:nth-child(2):hover{
+	color: #fff;
+	cursor: pointer;
+}
+.foot1 .zixun{
+	width: 400px;
+	height: 40px;
+	margin: 0 auto;
+}
+.zixun div{
+	width: 150px;
+	height: 40px;
+	margin: 0 auto;
+	font-size: 14px;
+	line-height: 40px;
+	color: #bababa;
+	float: left;
+	cursor: pointer;
+}
+.zixun div a{
+	font-size:20px;
+	text-align: center;
+	line-height: 38px;
+	display: block;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	color: #727272;
+	border: 2px solid #727272;
+	margin-right: 8px;
+	float: left;
+}
+.zixun div:hover a{
+	color: #fff;
+	border: 2px solid #fff;
+}
+.zixun div:hover{
+	color: #fff;
+}
+/* 固定定位开始 */
+.gd{
+	width: 52px;
+	height: 156px;
+	position: fixed;
+	bottom: 50px;
+	right: 20px;
+	background-color: red;
+}
+.gd1{
+	display: block;
+	width: 52px;
+	height: 52px;
+	font-size: 30px;
+	text-align: center;
+	line-height: 52px;
+	background-color: #CD2123;
+	color: #fff;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.dh{
+	width: 35px;
+    height: 52px;
+    border-left: 7px solid #222222;
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 52px;
+    text-align: center;
+    background: #9d1311;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    font-weight: 600;
+    transition:  0.5s;
+    overflow: hidden;
+    transition-property: width,transform;
+}
+.gd1:hover .dh{
+	width: 155px;
+	transform: translateX(-155px);
+}
+.gd2{
+	background-color: #6A6A6A;
+}
+.erweima{
+	position: absolute;
+	top: -52px;
+	left: -156px;
+	width:156px;
+	height: 156px;
+	display: none;
+}
+.erweima img{
+	width: 100%;
+	height: 100%;
+}
+.gd2:hover .erweima{
+	display: block;
+}
+.gd3{
+	line-height: 20px;
+	background-color: #818181;
+}
+

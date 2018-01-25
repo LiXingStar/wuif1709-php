@@ -1,9 +1,17 @@
+<script src="/milan/static/js/index.js"></script>
 <script src="/milan/static/js/banner.js"></script>
 	<!-- BANNA开始 -->
+<?php
+  $sql = "select * from article where posid=1";
+  $banner = $mysql->query($sql)->fetch_all(MYSQLI_ASSOC);
+?>
+
 	<div class="img">
-		<img class="banna active" src="../../../../../Users/lixing/Desktop/milan/imgs/4.jpg" alt="">
-		<img class="banna" src="../../../../../Users/lixing/Desktop/milan/imgs/6.jpg" alt="">
-		<img class="banna" src="../../../../../Users/lixing/Desktop/milan/imgs/8.jpg" alt="">
+        <?php
+ for($i=0;$i<count($banner);$i++){
+?>
+		<img class="banna active" src="<?php echo $banner[$i]['aimgs'];?>" alt="">
+		<?php }?>
 		<ul class="radio">
 		<li></li>
 		<li></li>
@@ -16,17 +24,16 @@
 		<div class="guanyu1">
 			<div class="gy-top">
 				<div class="gy-top1">
-					<p>关于我们</p>
-					<a class="gy-top2" href="">ABOUT US</a>
-					<a class="gy-top3" href=""></a>
+					<p>
+						<?php echo $about['cname'];?>
+					</p>
+					<a class="gy-top2"><?php echo $about['engname'];?></a>
+					<a class="gy-top3"></a>
 				</div>
 			</div>
 			<h3 class="lishi">MiLan - Chocolate</h3>
 			<p class="lishi1">
-				
-				巧克力 （香甜可口的食品） 编辑 
-巧克力（chocolate），原产中南美洲，其鼻祖是“xocolatl”，意为“苦水”。其主要原料可可豆产于赤道南北纬18度以内的狭长地带。
-巧克力的主要成分是可可脂，可可脂中含有可可碱，对多种动物有毒，但对人类来说，可可碱是一种健康的反镇静成分，故食用巧克力有提升精神，增强兴奋等功效，可可含有苯乙胺，坊间流传着能够使人有恋爱的感觉的流言。
+				<?php echo $about['cdesc'];?>
 			</p>
 		</div>
 	</div>
@@ -41,147 +48,51 @@
 	</div>
 	<div class="list">
 		<ul>
+         <?php
+  for($i=0;$i<count($article);$i++){
+?>
 			<li>
-				<a href="../../../../../Users/lixing/Desktop/milan/liebiao.html">
+				<a href="show.php?cid=<?php echo $article[$i]['cid']?>&aid=<?php echo $article[$i]['aid']?>">
 				<div class="img-box">
-					 <img class="img-box1" src="../../../../../Users/lixing/Desktop/milan/imgs/7.jpg" alt="">
+					 <img class="img-box1" src="<?php echo $article[$i]['athumb'];?>" alt="">
 					  <div class="dw">
 					  	<img src="../../../../../Users/lixing/Desktop/milan/img/link.png" alt="">
-					  	<span>MiLan - Chocolate</span>
+					  	<span><?php echo $article[$i]['adesc'];?></span>
 					  </div>
 				 </div>
-				 <div class="title">Tribeca &nbsp;抹茶口味</div>
+				 <div class="title"><?php echo $article[$i]['atitle'];?></div>
 			 	</a>
 		    </li>
-		    <li>
-				<a href="">
-				<div class="img-box">
-					 <img class="img-box1" src="../../../../../Users/lixing/Desktop/milan/imgs/6.jpg" alt="">
-					  <div class="dw">
-					  	<img src="../../../../../Users/lixing/Desktop/milan/img/link.png" alt="">
-					  	<span>MiLan - Chocolate</span>
-					  </div>
-				 </div>
-				 <div class="title">Soho &nbsp;可可口味</div>
-
-			 	</a>
-		    </li>
-		    <li>
-				<a href="">
-				<div class="img-box">
-					 <img class="img-box1" src="../../../../../Users/lixing/Desktop/milan/imgs/9.jpg" alt="">
-					  <div class="dw">
-					  	<img src="../../../../../Users/lixing/Desktop/milan/img/link.png" alt="">
-					  	<span>MiLan - Chocolate</span>
-					  </div>
-				 </div>
-				 <div class="title">Park &nbsp;可可豆原料</div>
-
-			 	</a>
-		    </li>
-		    <li>
-				<a href="">
-				<div class="img-box">
-					 <img class="img-box1" src="../../../../../Users/lixing/Desktop/milan/imgs/4.jpg" alt="">
-					  <div class="dw">
-					  	<img src="../../../../../Users/lixing/Desktop/milan/img/link.png" alt="">
-					  	<span>MiLan - Chocolate</span>
-					  </div>
-				 </div>
-				 <div class="title">Paris-Seoul &nbsp;马卡龙</div>
-
-			 	</a>
-		    </li>
-		    <li>
-				<a href="">
-				<div class="img-box">
-					 <img class="img-box1" src="../../../../../Users/lixing/Desktop/milan/imgs/11.jpg" alt="">
-					  <div class="dw">
-					  	<img src="../../../../../Users/lixing/Desktop/milan/img/link.png" alt="">
-					  	<span>MiLan - Chocolate</span>
-					  </div>
-				 </div>
-				 <div class="title">Airport &nbsp;草莓冰</div>
-			 	</a>
-		    </li>
-		    <li>
-				<a href="">
-				<div class="img-box">
-					 <img class="img-box1" src="../../../../../Users/lixing/Desktop/milan/imgs/8.jpg" alt="">
-					  <div class="dw">
-					  	<img src="../../../../../Users/lixing/Desktop/milan/img/link.png" alt="">
-					  	<span>MiLan - Chocolate</span>
-					  </div>
-				 </div>
-				 <div class="title">Metropolitan 醇黑可可</div>
-
-			 	</a>
-		    </li>
-		    <li>
-				<a href="">
-				<div class="img-box">
-					 <img class="img-box1" src="../../../../../Users/lixing/Desktop/milan/imgs/7.jpg" alt="">
-					  <div class="dw">
-					  	<img src="../../../../../Users/lixing/Desktop/milan/img/link.png" alt="">
-					  	<span>MiLan - Chocolate</span>
-					  </div>
-				 </div>
-				 <div class="title">Dure &nbsp;榛子巧克力</div>
-
-			 	</a>
-		    </li>
-		    <li>
-				<a href="">
-				<div class="img-box">
-					 <img class="img-box1" src="../../../../../Users/lixing/Desktop/milan/imgs/12.jpg" alt="">
-					  <div class="dw">
-					  	<img src="../../../../../Users/lixing/Desktop/milan/img/link.png" alt="">
-					  	<span>MiLan - Chocolate</span>
-					  </div>
-				 </div>
-				 <div class="title">Bristol &nbsp;松露巧克力</div>
-
-			 	</a>
-		    </li>
-		    <li>
-				<a href="">
-				<div class="img-box">
-					 <img class="img-box1" src="../../../../../Users/lixing/Desktop/milan/imgs/11.jpg" alt="">
-					  <div class="dw">
-					  	<img src="../../../../../Users/lixing/Desktop/milan/img/link.png" alt="">
-					  	<span>MiLan - Chocolate</span>
-					  </div>
-				 </div>
-				 <div class="title">Bolton sofa &nbsp;圣诞礼品</div>
-
-			 	</a>
-		    </li>
+<?php }?>
 			
 		</ul>	
 	</div>
 	<!-- 公司新闻开始 -->
 	<div class="xinwen">
 		<div class="xinwen1">
-			<h2>Chocolate &nbsp;新闻</h2>
-			<span>COMPANY NEWS</span>
+			<h2><?php echo $news['cname'];?> </h2>
+			<span><?php echo $news['engname'];?></span>
 		</div>
 		<div class="new">
-			<a href="" >
-				<p class="p1">MiLan Varenna — 巧克力新宠</p>
-				<p class="p2">　Arthena系列 曾经有一位牛奶巧克力...</p>
+			<?php
+            for($i=0;$i<count($newslist);$i++){
+            if($i%2 == 0){
+?>
+			<a href="show_news.php?cid=55&nid=<?php echo $newslist[$i]['nid'];?>" >
+				<p class="p1"><?php echo $newslist[$i]['ntitle'];?></p>
+				<p class="p2">　<?php echo $newslist[$i]['ndesc'];?></p>
 			</a>
-			<a href="" style="margin-top: 30px;">
-				<p class="p1">那些让人惊艳的意大利高</p>
-				<p class="p2">　纵览世界顶级 黑可可 ，意大...</p>
+			<?php }else{
+
+?>
+			<a href="show_news.php?cid=55&nid=<?php echo $newslist[$i]['nid'];?>" style="margin-top: 30px;">
+				<p class="p1"><?php echo $newslist[$i]['ntitle'];?></p>
+				<p class="p2">　<?php echo $newslist[$i]['ndesc'];?></p>
 			</a>
-			<a href="">
-				<p class="p1">榛子巧克力 | MiLan巧克力—线</p>
-				<p class="p2">　Vincent Van Duysen毕业于Gent享誉盛名的...</p>
-			</a>
-			<a href="" style="margin-top: 30px;">
-				<p class="p1">抹茶口味 | 你的专属</p>
-				<p class="p2">　MiLan-Varenna  | 你的甜点也该如此...</p>
-			</a>
+			<?php
+			}
+			 }
+?>
 		</div>
 	</div>
 	<!-- 公司新闻结束 -->

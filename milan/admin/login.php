@@ -15,12 +15,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     $sql = "select * from manager  where username='{$user}'";
     $data = $mysql->query($sql)->fetch_all(MYSQLI_ASSOC);
-
+    session_start();
     for ($i = 0; $i < count($data); $i++) {
         if ($data[$i]['username'] == $user) {
             if ($data[$i]['password'] == $password) {
                 $message = '登陆成功';
                 $url = 'main.php';
+                $_SESSION['islogin'] = 'yes';
+                $_SESSION['user'] =  $user;
                 include 'message.html';
                 exit();
             } else {

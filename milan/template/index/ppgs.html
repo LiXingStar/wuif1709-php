@@ -1,0 +1,93 @@
+	<link rel="stylesheet" href="/milan/static/css/ppgs.css">
+	<!-- BANNA开始 -->
+	<div class="img">
+	 	<img class="banna" src="/milan/static/image/6.jpg"  title="BANNA" alt=""  style="opacity: 1">
+	</div>
+	<!-- ppls kaishi -->
+	<div class="ppls">Chocolate历史
+		<div class="ppls-right">当前位置: 
+			<a href="index.html"> 主页 </a>
+			<span> &gt; </span>
+			<a href="ppgs.html" style="color:#cd2223;"> 关于我们 </a>
+			<span style="color:#cd2223;"> &gt;</span>
+
+		</div>
+	</div>
+	<!-- ppls section kaishi -->
+	<div class="con">
+		<ul class="xik">
+        		<li>
+        			<a href=""><img class="imgs" src="/milan/static/image/2.jpg" alt=""></a>
+	        		<p class="p">
+		        		Chocolate，一个多么美妙的名字。当她充满韵律的音符在我们的舌间欢快舞蹈时，不知不觉地，她香醇柔滑的味道就浸润到了我们的心田。闭上眼睛，体会巧克力带来的美妙感受，是她细腻的质感带给你喜悦和甜蜜，是回味她在口中浓郁的味道让你满足和心醉，还是巧克力的浓情蜜意让你感受到了甜美爱情的味道。
+	        		</p>
+        		</li>
+        		<li>
+        			<a href=""><img class="imgs" src="/milan/static/image/3.jpg" alt=""></a>
+	        		<p class="p">
+		        		
+		还记得与朋友们相见时的那种按捺不住的心情吗？就像多姿多彩的M＆M’s巧克力豆一样欢快愉悦。这些彩色的小精灵，缤纷的色彩是它们与生俱来的天性，分享欢乐是它们的本色。有它们在，就有欢声笑语。有它们在，心情也会如晴空中的彩虹般亮丽。它们有像青春一样跳动的色彩，它们有飞扬的个性，它们有无畏的自信和勇气，它们更有满心的热情随时释放，你会情不自禁地被它们吸引，感染它们的颜色，分享它们的快乐…… 
+	        		</p>
+        		</li>
+        		<li>
+        			<a href=""><img class="imgs" src="/milan/static/image/4.jpg" alt=""></a>
+	        		<p class="p">
+		        		
+		巧克力有利于心脏健康。巧克力中的多酚具有与阿司匹林相似的抗炎作用，在一定浓度下可以降低血小板活化，转移自由基在血管壁上的沉积。
+	        		</p>
+        		</li>
+        		<li>
+        			<a href=""><img class="imgs" src="/milan/static/image/5.jpg" alt=""></a>
+	        		<p class="p">
+		        		
+		大量的科学研究表明，巧克力给人带来好心情是因为巧克力中的苯乙胺可以帮助调节人的情绪。巧克力中还含有丰富的镁元素，镁具有安神和抗忧郁的作用。一块44克重的德芙黑巧克力中，镁的含量约为50．6毫克。
+	        		</p>
+        		</li>
+        		<li>
+        			<a href=""><img class="imgs" src="/milan/static/image/6.jpg" alt=""></a>
+	        		<p class="p">
+		        		
+	营养丰富，味道醇美的巧克力受到越来越多朋友的欢迎和喜爱。在喜庆佳节的日子里，在看望父母，老友重逢，朋友聚会的时刻，一盒精美的巧克力，会带去您对家人和朋友最真诚的祝福，人们一边品尝味道甜美的巧克力，一边娓娓讲述着那浪漫动人的情感故事。在沉醉于爱情的恋人心中，巧克力像爱人执手相握的深情。有巧克力的日子就是幸福甜美的日子。巧克力给热爱生活的人们带来快乐、健康和幸福！
+	        		</p>
+        		</li>
+        	</ul>
+
+	</div>
+<script>
+	$('.icon-gengduo').click(function(){
+			if($('.boxs')[0].offsetWidth == 0){
+				$('.ns').css({transform:'rotateZ(360deg)'});
+			$('.icon-gengduo').css({color:'#ae2422'});
+			$('.boxs').css({width:'750'});
+			$('.hot').css({color:'#ae2422'})
+			}else{
+				$('.ns').css({transform:'rotateZ(0)'});
+				$('.boxs').css({width:'0'});
+				
+			}
+
+		});
+		$('.boxs').on('mouseenter','a',function(){
+			$(this).addClass('hots').siblings().removeClass('hots');
+		})
+		let lis = $('.xik > li');
+		let top1 = []; 
+		lis.each(function(){
+
+			top1.push($(this).offset().top);
+		})
+	
+		$(window).scroll(function(){
+			let obj = $(window).scrollTop();
+			$.each(top1,function(i,e){
+				let p = lis.eq(i).children('.p');
+
+				let imgs = lis.eq(i).find('.imgs');
+				if(obj > e - 250){
+					p.css({opacity:1,'line-height':'50px','font-size':'18px'});
+					imgs.css({transform:'scale(1.2, 1.2)',opacity:1})
+
+				}
+			})
+		});
+</script>

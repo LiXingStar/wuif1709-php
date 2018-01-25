@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="/milan/static/css/index.css">
     <title>Matcha Chocolate</title>
     <script src="/milan/static/js/jquerys.js"></script>
-    <script src="/milan/static/js/index.js"></script>
+    <script src="/milan/static/js/rotate.js"></script>
+
 </head>
 <body>
 <!-- 头部开始 -->
@@ -25,13 +26,13 @@
             <h2 class="h2-1">MiLan</h2>
             <h2 class="h2-1 h2-2">Varenna</h2>
             <div class="boxs">
-                <a href="index.html" class="hot nav-list  ">网站首页</a>
+                <a href="/milan/index.php" class="nav-list  <?php echo !isset($_GET['cid'])?'hot':'' ?>">网站首页</a>
 
                 <?php
                   for($i=0;$i<count($data);$i++){
                 ?>
-
-                  <a href="category.php?cid=<?php echo $data[$i]['cid']?>" class="nav-list navs">
+<!-- <?php if(isset($_GET['cid'])){ echo $_GET['cid']==$data[$i]['cid']?'hot':'';}?>-->
+                  <a href="category.php?cid=<?php echo $data[$i]['cid']?>" class="nav-list navs <?php if(isset($_GET['cid'])){ echo $_GET['cid']==$data[$i]['cid']?'hot':'';}?> ">
                       <?php echo $data[$i]['cname']?>
                   </a>
 

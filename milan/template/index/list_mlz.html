@@ -1,33 +1,35 @@
-    <link rel="stylesheet" href="css/mlz.css">
-    <div class="img">
-        <!-- 	<img class="banna" src="imgs/6.jpg"  title="BANNA" alt=""> -->
+<link rel="stylesheet" href="css/mlz.css">
+<script src="/milan/static/js/index.js"></script>
+<div class="img">
+    <!-- 	<img class="banna" src="imgs/6.jpg"  title="BANNA" alt=""> -->
+</div>
+<!-- chan pin list kaishi -->
+<div class="gy-top">
+    <div class="gy-top1">
+        <p>产品列表</p>
+        <a class="gy-top2" href="">Products List</a>
+        <a class="gy-top3" href=""></a>
     </div>
-		<!-- chan pin list kaishi -->
-	<div class="gy-top">
-		<div class="gy-top1">
-			<p>产品列表</p>
-			<a class="gy-top2" href="">Products List</a>
-			<a class="gy-top3" href=""></a>
-		</div>
-	</div>
-	<div class="list">
-		<ul>
-            <?php
+</div>
+<div class="ppls-right">当前位置:
+    <?php echo $breadnav; ?>
+</div>
+<div class="list">
+    <ul>
+        <?php
       for($i=0;$i<count($result);$i++){
  ?>
-
-
-			<li>
-				<a href="show.php?cid=<?php echo $result[$i]['cid']?>">
-				<div class="img-box">
-					 <img class="img-box1" src="<?php echo $result[$i]['athumb'];?>" alt="">
-					  <div class="dw">
-                          <?php echo $result[$i]['adesc'];?>
-					  </div>
-				 </div>
-				 <div class="title"><?php echo $result[$i]['atitle'];?></div>
-			 	</a>
-		    </li>
-		<?php }?>
-		</ul>	
-	</div>
+        <li>
+            <a href="show.php?aid=<?php echo $result[$i]['aid']?>">
+                <div class="img-box">
+                    <img class="img-box1" src="<?php echo $result[$i]['athumb'];?>" alt="">
+                    <div class="dw">
+                        <?php echo $result[$i]['adesc'];?>
+                    </div>
+                </div>
+                <div class="title"><?php echo $result[$i]['atitle'];?></div>
+            </a>
+        </li>
+        <?php }?>
+    </ul>
+</div>

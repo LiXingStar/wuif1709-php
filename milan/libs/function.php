@@ -39,8 +39,6 @@ class unit
         }
         return $this->str;
     }
-
-
     function cateTable($db, $tablename)
     {
         $sql = "select * from $tablename";
@@ -52,7 +50,7 @@ class unit
           <td>{$data[$i]['cid']}</td>
           <td>{$data[$i]['cname']}</td>
           <td>{$data[$i]['engname']}</td>
-          <td>{$data[$i]['cdesc']}</td>
+          <td style='width: 300px'>{$data[$i]['cdesc']}</td>
           <td>
               <img src=\"{$data[$i]['cimage']}\" alt=\"\" class=\"img-thumbnail\" width='50'>
           </td>
@@ -62,6 +60,72 @@ class unit
               ";
         }
 
+        return $this->str;
+    }
+
+    function articleTable($db, $tablename1, $tablename2)
+    {
+        $sql = "select $tablename1.*,cname from $tablename1,$tablename2 where $tablename1.cid = $tablename2.cid";
+        $data = $db->query($sql)->fetch_all(MYSQLI_ASSOC);
+        for ($i = 0; $i < count($data); $i++) {
+            $this->str .= "
+               <tr>
+          <td>{$data[$i]['aid']}</td>
+          <td>{$data[$i]['atitle']}</td>
+          <td>{$data[$i]['adesc']}</td>
+          <td>
+              <img src=\"{$data[$i]['athumb']}\" alt=\"\" class=\"img-thumbnail\" width='50'>
+          </td>
+          <td>
+             <img src=\"{$data[$i]['aimgs']}\" alt=\"\" class=\"img-thumbnail\" width='50'>
+          </td>
+          <td>{$data[$i]['cname']}</td>
+          <td><a href=\"articleupdate.php?aid={$data[$i]['aid']}\" class=\"btn btn-info\">修改</a><a href=\"articledelete.php?aid={$data[$i]['aid']}\" class=\"btn btn-info\" style=\"margin-left: 10px\">删除</a></td>
+      </tr>      
+              ";
+        }
+
+        return $this->str;
+    }
+
+   /* function getCatepath($db,$cid){
+        static $result=array();
+        $sql = "select * from category where cid=$cid";
+        $rs = $db->query($sql);
+        $row = $rs->fetch_assoc();
+        if($row) {
+            array_push($result,$row);
+            $this->getCatePath($db,$row['pid'], $result);
+        }
+        krsort($result);
+        foreach($result as $k=>$val) {
+            echo "<a href='index.php?cid={$val['cid']}'>{$val['cname']} ></a>";
+        }
+        return $result;
+    }*/
+
+   /*
+    *           cid
+    * */
+    function getCate($cid,$db){
+       static $arr = array();
+       $sql ="select * from category where cid=$cid";
+       $data = $db->query($sql)->fetch_assoc();
+       if($data){
+           array_push($arr,$data);
+           $this->getCate($data['pid'],$db);
+       }
+       krsort($arr);
+       return $arr;
+    }
+    function breadNav($cid,$db){
+        $this->str = "<a href=\"/milan/index.php\"> 主页 </a>
+			<span> &gt; </span>";
+        $arr = $this->getCate($cid,$db);
+        foreach ($arr as $value){
+            $this->str .="<a href=\"category.php?cid={$value['cid']}\"> {$value['cname']} </a>
+			<span> &gt;</span>";
+        }
         return $this->str;
     }
 

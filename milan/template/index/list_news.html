@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="/milan/static/css/news.css">
+<link rel="stylesheet" href="/milan/static/css/response.css">
+<main>
+    <div class="news-box">
+        <ul class="new-box">
+            <?php for($i=0;$i<count($datalist);$i++){?>
+            <li class="news">
+                <a href="show" class="news-a">
+                    <div class="new">
+                        <div class="times">
+                            <h2>
+                                <?php
+                       echo  substr($datalist[$i]['ntime'],5,5);
+?>
+                            </h2>
+                            <p>
+                                <?php
+                       echo  substr($datalist[$i]['ntime'],0,4);
+?>
+                            </p>
+                        </div>
+                        <div class="imgs">
+                            <img src=" <?php  echo  $datalist[$i]['nthumb'];?>" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="news-title">
+                                <?php  echo  $datalist[$i]['ntitle'];?>
+                            </div>
+                            <div class="news-con">
+                                <?php  echo  $datalist[$i]['ndesc'];?>
+                            </div>
+                            <div class="detail">
+                                发表于 <a href="">
+                                <?php  echo  substr($datalist[$i]['ntime'],0,10);?>
+                            </a> | 作者 <a href=""><?php  echo  $datalist[$i]['nauthor'];?></a>
+                                <!--	|  发布者 <a href="">N-Travel</a>-->
+                            </div>
+                        </div>
+                        <a href="" class="more">查看本辑作品 > </a>
+                    </div>
+                </a>
+            </li>
+            <?php }?>
+        </ul>
+    </div>
+    <div class="yema-box">
+        <ul class="yema">
+            <li><a href="category.php?cid=55&page=<?php echo $i;?>"><span class="click">&lt;&lt;</span></a></li>
+
+            <?php for($i=0;$i<$pages;$i++){?>
+            <li><a href="category.php?cid=55&page=<?php echo $i;?>"><span class="click"> <?php echo $i+1; ?></span></a></li>
+            <?php }?>
+            <li><a href=""><span class="click">&gt;&gt;</span></a></li>
+        </ul>
+    </div>
+</main>

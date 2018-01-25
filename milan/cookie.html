@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    document.cookie = 'name=zhangan';
+    document.cookie = 'age=18';
+    let date = new Date();
+    //    date.setDate(date.getDay()+1);
+    date.setTime(date.getTime() + 1000 * 60 * 60 * 24);
+    document.cookie = 'sex=nan;expires=' + date.toGMTString();
+
+    let values = getCookie('age');
+
+    setCookie('php', 'yes', 5);
+
+
+    function setCookie(keys, values, time) {
+        if (time) {
+            let date = new Date();
+            date.setTime(date.getTime() + time * 1000 * 60 * 60)
+            document.cookie = keys + '=' + values + ';expires=' + date.toGMTString();
+        } else {
+            document.cookie = keys + '=' + values;
+        }
+    }
+
+    function deleteCookie(keys) {
+        let date = new Date();
+        date.setTime(date.getTime() - 1000);
+        document.cookie = keys + '=aa;expires=' + date.toGMTString();
+    }
+
+    function getCookie(keys) {
+        let arr = document.cookie.split('; ');
+        for (let i = 0; i < arr.length; i++) {
+            let newarr = arr[i].split('=');
+            if (newarr[0] == keys) {
+                return newarr[1];
+            }
+        }
+        return '没有';
+    }
+
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/css/main.css">
-    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/jquerys.js"></script>
     <script src="../static/js/main.js"></script>
     <title>Title</title>
 </head>
@@ -12,6 +12,7 @@
 <nav class="nav">
     <div class="content">
         <img src="../static/image/bg.jpg" alt="">
+        <a href="logout.php" class="btn btn-default ">退出</a>
     </div>
 </nav>
 <div class="left">
@@ -28,24 +29,33 @@
     <h3>文章管理</h3>
     <ul>
         <li>
-            <a href="">添加文章</a>
+            <a href="articleadd.php" target="right">添加文章</a>
         </li>
         <li>
-            <a href="">展示文章</a>
+            <a href="articleshow.php" target="right">展示文章</a>
         </li>
     </ul>
-    <h3>管理地址</h3>
+    <h3>新闻管理</h3>
     <ul>
         <li>
-            <a href="">添加分类</a>
+            <a href="newsadd.php" target="right">添加分类</a>
         </li>
         <li>
             <a href="">展示分类</a>
         </li>
     </ul>
+    <h3>推荐位管理</h3>
+    <ul>
+        <li>
+            <a href="posadd.php" target="right">添加推荐位</a>
+        </li>
+        <li>
+            <a href="posshow.php" target="right">展示推荐位</a>
+        </li>
+    </ul>
 </div>
 <div class="right">
-    <iframe src="cateadd.php" frameborder="0" name="right"></iframe>
+    <iframe src="articleadd.php" frameborder="0" name="right"></iframe>
 </div>
 </body>
 </html>

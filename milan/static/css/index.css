@@ -428,9 +428,9 @@ body{
 .new a:hover .p1{
 	color: #CD2223;
 }
-.new a:hover{
-	border: 1px solid #CD2223;
-}
+/*.new a:hover{*/
+	/*border: 1px solid #CD2223;*/
+/*}*/
 /*  公司新闻结束 */
 /* footer kaishi */
 .footer{

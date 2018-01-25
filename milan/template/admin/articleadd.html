@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <title>Title</title>
+</head>
+<body>
+<form action="articleadd.php" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="exampleInputEmail1">父栏目</label>
+        <select class="form-control" id="exampleInputEmail1" name="cid">
+            <option value="0">一级栏目</option>
+
+            <?php
+            echo $str;
+?>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">文章名称</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="articleTitle" name="atitle">
+    </div>
+    <div class="form-group">
+    <label for="exampleInputText">文章描述</label>
+    <textarea class="form-control" rows="3" id="exampleInputText" name="adesc"></textarea>
+</div>
+    <div class="form-group">
+        <label for="exampleInputContent">文章详情</label>
+        <textarea class="form-control" rows="3" id="exampleInputContent" name="acontent"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputFile">文章缩略图</label>
+        <input type="file" id="exampleInputFile" name="athumb" >
+    </div>
+    <div class="form-group">
+        <label for="exampleInputImage">文章内容图片</label>
+        <input type="file" id="exampleInputImage" name="aimage">
+    </div>
+    <div class="form-group">
+        <label >推荐位</label>
+        <?php
+    for($i=0;$i<count($posarr);$i++){
+?>
+        <label class="radio-inline">
+            <input type="radio" name="posid" value="<?php echo $posarr[$i]['pid']?>"> <?php echo $posarr[$i]['pname']?>
+        </label>
+       <?php }?>
+    </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</body>
+</html>
